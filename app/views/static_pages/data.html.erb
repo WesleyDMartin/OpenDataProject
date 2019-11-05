@@ -1,0 +1,54 @@
+
+<div id="wrapper">
+    <div id="left">
+        <%= form_for :anything, url: "data" do |f| %>
+        <h3>Select Stop to Analyze</h3>
+        <select>
+            <option>Conestoga</option>
+            <option>Northfield</option>
+            <option>Research and Technology</option>
+            <option>University of Waterloo</option>
+            <option>Laurier - Waterloo Park</option>
+            <option>Waterloo Public Square</option>
+            <option selected="selected">Willis Way</option>
+            <option>Allen</option>
+            <option>Grand River Hospital</option>
+            <option>Central Station - Innovation District</option>
+            <option>Kitchener City Hall</option>
+            <option>Victoria Park</option>
+            <option>Frederick</option>
+            <option>Queen</option>
+            <option>Kitchener Market</option>
+            <option>Mill</option>
+            <option>Block Line</option>
+            <option>Fairway</option>
+        </select>
+          <h3>Year Granted</h3>
+          <p>Between 2010 and 2019</p>
+          <span><input name="lower_value" type="text"
+              value="2010" id="value_range">-
+              <input name="upper_value" type="text"
+              value="2019" id="value_range"></span>
+                  
+        <h3>Please enter distance from stop (in meters)</h3>
+          <p>Between 0 and 1000</p>
+              <span><input name="lower_value" type="text"
+                  value="Between 0 and 1000" id="value_range"><span>
+        <% end %>
+        
+    </div>
+    <div id = "right" style ="margin-top: 0px">
+        <h1>Willis Way</h1>
+        <h3>Total Permit Count</h3>
+        <p>There have been 96 permits granted between 2010 and 2019 over 100 thousand dollars</p>
+        <h3>Most Expensive Permit</h3>
+        <p>The most expensive permit was a mixed use building for 200 million dollars</p>
+        
+        <h3>Breakdown of Types of Permits</h3>
+        <%= image_tag('meta-chart.png', height: 300) %>
+        
+    </div>
+</div>
+
+
+  

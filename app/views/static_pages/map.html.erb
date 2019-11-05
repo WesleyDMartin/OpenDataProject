@@ -1,0 +1,67 @@
+<% provide :head_tags do %>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script>
+    
+    var slider;
+    var output;
+  $(document).on('turbolinks:load', function() {
+        initMap(<%=@location_set.map{|l| l.lat}%>, <%=@location_set.map{|l| l.long}%>)
+        addMarker(<%=@permit_set.map{|l| l.lat}%>, 
+        <%=@permit_set.map{|l| l.long}%>, 
+        <%=@permit_set.map{|l| l.value}%>)
+        value_range = document.getElementById("value_range");
+        year_range = document.getElementById("year_range");
+        lower_year_label = document.getElementById("lower_year_label");
+        lower_year_label.innerHTML = year_range.value; // Display the default slider value
+        lower_value_label = document.getElementById("lower_value_label");
+        lower_value_label.innerHTML = value_range.value; // Display the default slider value
+        value_range.onchange = function() {
+          lower_value_label.innerHTML = this.value;
+          document.getElementById('submit_form').click();
+        }
+        year_range.onchange = function() {
+          lower_year_label.innerHTML = this.value;
+          document.getElementById('submit_form').click();
+        }
+    });
+    
+    </script>
+<% end %>
+<div id="wrapper">
+  <div id="left">
+        <%= form_for :anything, url: "update", remote: true do |f| %>
+              <h3>Building Permit Value</h3>
+              <p>Between 0 and 150 million</p>
+              <span><input name="lower_value" type="text"
+                  value="0" id="value_range">-
+                  <input name="upper_value" type="text"
+                  value="150000000" id="value_range"></span>
+                  <br />
+              <h3>Year Granted</h3>
+              <p>Between 2010 and 2019 million</p>
+              <span><input name="lower_value" type="text"
+                  value="2010" id="value_range">-
+                  <input name="upper_value" type="text"
+                  value="2019" id="value_range"></span>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <span><h4 style="display: inline;">Points</h4>                  
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label><h4 style="display: inline;">Heat Map</h4></span>
+                  
+              <h3>Building Permit Value</h3>
+              <p><b>Building permits</b> are granted by the region to companies that wish to invest in new buildings. </p>
+              <p><b>ION Locations</b> are indicated by red markers and show where the train stations are located </p>
+              <p><b>Click</b> on a marker to view details about that stop </p>
+        <% end %>
+</div>
+  <div id="right">
+
+    <%= render 'submap' %>
+  </div>
+</div>

@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# require 'csv' 
+# @location_set = LocationSet.create(name: "ION_Stops")
+# csv_text = File.read('public/ION_Stops.csv')
+# csv = CSV.parse(csv_text, :headers => true)
+# csv.each do |row|
+#   @location_set.locations.create(lat: row[1], long: row[0])
+# end
+
+# @permit_set = LocationSet.create(name: "Building_Permits")
+# csv_text2 = File.read('public/FormattedLocations.csv')
+# csv2 = CSV.parse(csv_text2, :headers => true)
+# csv2.each do |row|
+#   @permit_set.locations.create(row.to_hash)
+# end

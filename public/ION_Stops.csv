@@ -1,0 +1,37 @@
+﻿X,Y,OBJECTID,StopName,Municipality,StopLocation,StopStatus,Stage1,Stage2,Phase,StopDirection
+-80.529451438349639,43.498136927471514,1,Conestoga,Waterloo,Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.543212026216551,43.497211260961848,2,Northfield,Waterloo,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.545158058178316,43.481623567942471,3,Research and Technology,Waterloo,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.541164797736656,43.473238097937518,4,University of Waterloo,Waterloo,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.534404427970088,43.468857177317183,5,Laurier - Waterloo Park,Waterloo,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.522988667881918,43.464141376633449,6,Waterloo Public Square,Waterloo,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Northbound
+-80.523369042613652,43.462143998939922,7,Willis Way,Waterloo,Median,Constructed,Light Rail Transit,Light Rail Transit,1,Southbound
+-80.518360786167321,43.459835910109526,8,Allen,Waterloo,Centre,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.512056222177918,43.457283461723343,9,Grand River Hospital,Kitchener,Centre,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.499131462981978,43.45317562096082,10,Central Station - Innovation District,Kitchener,Dual Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.490802878037542,43.451927751375941,11,Kitchener City Hall,Kitchener,Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Northbound
+-80.493708024301327,43.450184801145753,12,Victoria Park,Kitchener,Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Southbound
+-80.487345992909425,43.449647709604626,13,Frederick,Kitchener,Centre,Constructed,Light Rail Transit,Light Rail Transit,1,Northbound
+-80.489423201445007,43.448626003923849,14,Queen,Kitchener,Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Southbound
+-80.483591844696321,43.446294701169556,15,Kitchener Market,Kitchener,Centre,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.477876475833298,43.433581584091058,16,Mill,Kitchener,Rail Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.463081951172938,43.42282486412217,17,Block Line,Kitchener,Curbside,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.441803425818122,43.422326784578757,18,Fairway,Kitchener,Hydro Corridor,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.393138115601616,43.410294534040645,19,Sportsworld,Kitchener,Off Road,Planned,adapted Bus Rapid Transit,,1,Bi-Directional
+-80.32804672741544,43.407224260089649,20,Pinebush (Southbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Southbound
+-80.321070507859943,43.385464865152791,21,Can-Amera (Southbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Southbound
+-80.318828727234177,43.373929520190806,22,Delta (Southbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Southbound
+-80.320987399828056,43.386361032481723,23,Can-Amera (Northbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Northbound
+-80.318190080557216,43.372871227921785,24,Delta (Northbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Northbound
+-80.323014461706506,43.392793728085337,25,Cambridge Centre Mall,Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Northbound
+-80.327746593643568,43.407610016279413,26,Pinebush (Northbound),Cambridge,Curbside,Constructed,adapted Bus Rapid Transit,,1,Northbound
+-80.475373102177315,43.442403420768208,27,Borden,Kitchener,Centre,Constructed,Light Rail Transit,Light Rail Transit,1,Bi-Directional
+-80.313680339737004,43.357354001016098,28,Ainslie St Terminal,Cambridge,Off Road,Constructed,adapted Bus Rapid Transit,,1,Bi-Directional
+-80.398366628355632,43.409310995624324,29,Sportsworld (LRT),Kitchener,Centre,Planned,,Light Rail Transit,2,Bi-Directional
+-80.364362505191949,43.398504943419773,30,Preston (LRT),Cambridge,Off Road,Planned,,Light Rail Transit,2,Bi-Directional
+-80.32727772023263,43.405472746785492,31,Pinebush (LRT),Cambridge,Centre,Planned,,Light Rail Transit,2,Bi-Directional
+-80.323041307754323,43.392274585986016,32,Cambridge Centre Mall (LRT),Cambridge,Centre,Planned,,Light Rail Transit,2,Bi-Directional
+-80.32105732096953,43.386073270298098,33,Can-Amera (LRT),Cambridge,Centre,Planned,,Light Rail Transit,2,Bi-Directional
+-80.31823136737512,43.376241381182396,34,Delta (LRT),Cambridge,Centre,Planned,,Light Rail Transit,2,Bi-Directional
+-80.310618057723346,43.359544604183164,35,Main (LRT),Cambridge,Rail Corridor,Planned,,Light Rail Transit,2,Bi-Directional
+-80.314741817658998,43.355903554961543,36,Cambridge Terminus (LRT),Cambridge,Centre,Planned,,Light Rail Transit,2,Bi-Directional

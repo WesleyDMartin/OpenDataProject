@@ -1,0 +1,17 @@
+long,lat,permit_type,issue_year,value
+-80.43743141,43.41284372,Industrial Building,2010,0
+-80.43743141,43.41284372,Industrial Building,2010,0
+-80.41961712,43.38795911,Septic System,2010,0
+-80.52173154,43.45284728,Residential Alteration,2010,0
+-80.479444,43.47271573,Non-Residential Alteration,2010,0
+-80.479444,43.47271573,Mechanical,2010,0
+-80.43666584,43.43137545,Residential Alteration,2011,0
+-80.5021827,43.46210194,Non-Residential Alteration,2011,0
+-80.43437999,43.42956788,Plumbing,2011,0
+-80.40794095,43.41881688,Septic System,2012,0
+-80.43943951,43.42437434,Non-Residential Alteration,2012,0
+-80.4768027,43.45659154,Residential Demolition,2013,0
+-80.43497599,43.41332155,Plumbing,2013,0
+-80.41365579,43.44191879,Residential Building (House),2013,0
+-80.48442091,43.44911709,Residential Alteration,2014,0
+-80.48899739,43.44884105,Non-Residential Alteration,2014,0

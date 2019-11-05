@@ -1,0 +1,23 @@
+<div id="overlay">
+
+<%= @location_set.name %>
+<%= form_for(@current_set, local:true) do |f| %>
+    <select multiple name="permit_type[]" class="form-control">
+      <% @types.each do |type| %>
+        <option value='<%= type.parameterize.underscore %>'><%= type %></option>
+      <% end %>
+    </select>
+    <div class="slidecontainer">
+      <input name="lower_value" type="range" min="0" max=<%=LocationSet.last.locations.map{|l| l.value}.max%>
+          value="<%= @start_value %>" class="slider" id="value_range">
+      <p>Value: <span id="lower_value_label"></span></p>
+    </div>
+    
+    <div class="slidecontainer">
+      <input name="lower_year" type="range" min=2010 max=2019
+          value="<%= @start_year %>" class="slider" id="year_range">
+      <p>Year: <span id="lower_year_label"></span></p>
+    </div>
+  <%= f.submit "Save changes", class: "btn btn-primary", id:'submit_form' %>
+<% end %>
+</div>

@@ -1,0 +1,39 @@
+<!--<header class="navbar navbar-fixed-top navbar-inverse">-->
+<!--  <div class="container">-->
+<!--      <nav>  -->
+      
+<!--      <div class="topnav-centered">-->
+<!--        <%#= link_to "Impact of the LRT", root_path, id: "logo" %>-->
+<!--      </div>-->
+<!--    </nav>-->
+<!--    <nav>-->
+<!--      <ul class="nav navbar-nav navbar-right">-->
+<!--        <li><%#= link_to "Home", static_pages_home_path %></li>-->
+<!--        <li><%#= link_to "Help", static_pages_help_path %></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</header>-->
+
+<!-- Top navigation -->
+
+<header class="bg-img background-image" style="background-image: <%= image_url("header_background.png") %>">
+    <div class="topnav navbar-transparent bg-img">
+    
+      <!-- Centered link -->
+      <div class="topnav-centered">
+            <%= link_to "Impact of the LRT", root_path, id: "logo" %>
+      </div>
+    
+      <!-- Right-aligned links -->
+      <div class="topnav-right">
+        <%= link_to "Help", static_pages_help_path %>
+      </div>
+    
+    </div>
+    <ul class="nav">
+        <%= link_to "Home", root_path, class: "pure-material-button-contained" %>
+        <%= link_to "Map", static_pages_map_path, class: "pure-material-button-contained" %>
+        <%= link_to "Data", static_pages_data_path, class: "pure-material-button-contained" %>
+    </ul>
+</header>
