@@ -1,27 +1,35 @@
 
-<div id="wrapper">
-    <div id="left">
-        <%= form_for :anything, url: "data" do |f| %>
+<%= form_for :anything, url: "data", :html => { :id => "submit_form" } do |f| %>
+<div style="display: flex">
+    <div style="margin: 10px">
         <h3>Select Stop to Analyze</h3>
         <%= select_tag "station_selection", options_for_select(@stop_names, selected: @selection) %>
-          <h3>Year Granted</h3>
-          <p>Between 2010 and 2019</p>
-          <span><input name="lower_year" type="text"
-              value=<%=@start_year%> id="value_range">-
-              <input name="upper_year" type="text"
-              value=<%=@end_year%> id="value_range"></span>
-                  
-        <h3>Please enter distance from stop (in kilometers)</h3> 
-          <p>Between 1 and 5</p>
+    </div>
+    <div style="margin: 10px">
+        <span style="display: flex; align-items: flex-end">
+        <h3 style="margin">Year Granted</h3>
+        </span>
+        <span style="display: flex; align-items: center"><input name="lower_year" type="text"
+            value=<%=@start_year%> id="value_range">-
+            <input name="upper_year" type="text"
+            value=<%=@end_year%> id="value_range"></span>
+        <p>Between 2010 and 2019</p>
+    </div>
+    <div style="margin: 10px">
+        <h3>Distance from stop (KMs)</h3>
               <span><input name="distance" type="text"
                   value=<%=@distance%> id="value_range"><span>
         <br />
         <br />
-        <%= f.submit "Update Data", class: "btn btn-primary"%>
-        <% end %>
-        
     </div>
-    <div id = "right" style ="margin-top: 0px">
+</div>
+<div style="display: flex; justify-content: center; width: 100%">
+    <%= f.submit "Update Data", class: "btn btn-primary"%>
+</div>
+<% end %>
+<hr />
+<div id="wrapper">
+    <div id="left">
         <h1><%=@selection%></h1>
         <h3>Total Permit Count</h3>
         <p>There have been <b><%=@count%></b> permits granted between <b><%=@start_year%></b> and <b><%=@end_year%></b>
@@ -32,10 +40,12 @@
         <p>The most expensive permit was for <b><%=number_to_currency(@max.value)%> <%="dollar".pluralize(@max.value)%></b></p>
         
         <h3>Number of Permits by Year</h3>
-        <%= line_chart @nearby_stations.group(:issue_year).count, donut: true, legend: false, width: "500px", height: "300px"%>
+        <%= line_chart @nearby_stations.group(:issue_year).count, donut: true, legend: false, width: "500px", height: "200px"%>
         
+    </div>
+    <div id = "right" style ="margin-top: 0px">
         <h3>Breakdown of Types of Permits</h3>
-        <%= pie_chart @nearby_stations.group(:permit_type).count, donut: true, legend: "right", width: "500px", height: "500px", library: { pieSliceText: 'value' }%>
+        <%= pie_chart @nearby_stations.group(:permit_type).count, donut: true, legend: "bottom", width: "500px", height: "500px", library: { pieSliceText: 'value' }%>
 
     </div>
 </div>

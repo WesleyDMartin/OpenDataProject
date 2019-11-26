@@ -33,16 +33,22 @@
                   <br />
                   <br />
                 <%= f.submit "Update Map", class: "btn btn-primary"%>
-                  
-              <h3>Building Permit Value</h3>
-              <p><b>Building permits</b> are granted by the region to companies that wish to invest in new buildings. </p>
-              <p><b>ION Locations</b> are indicated by red markers and show where the train stations are located </p>
-              <p><b>Click</b> on a marker to view details about that stop </p>
+              <h3>Count of Permits by Value</h3>
+              <%= column_chart @permit_categories, donut: true, legend: false, width: "500px", height: "200px"%>
+              
+              <h3>Number of Permits by Year</h3>
+              <%= line_chart @permit_set.group(:issue_year).count, donut: true, legend: false, width: "500px", height: "200px"%>
+
         <% end %>
 </div>
   <div id="right">
 
     <%= render 'submap' %>
+            
+    <h3>Building Permit Value</h3>
+    <p><b>Building permits</b> are granted by the region to companies that wish to invest in new buildings. </p>
+    <p><b>ION Locations</b> are indicated by red markers and show where the train stations are located </p>
+    <p><b>Click</b> on a marker to view details about that stop </p>
   </div>
 </div>
 
