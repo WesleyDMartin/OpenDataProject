@@ -212,9 +212,7 @@ html, body {
 #wrapper {    
     height: 100%;
     margin-bottom: 0px;
-    overflow:hidden; /*added this*/
   margin-top: 50px;
-  height: 100%;
   display: flex;
 }
 
@@ -224,7 +222,7 @@ html, body {
 }
 
 #right {
-  margin-top: 50px;
+  margin: 60px 10px 0px 10px;
   flex: 1;
 }
 

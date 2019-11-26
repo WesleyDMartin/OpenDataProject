@@ -26,6 +26,10 @@ function initMap(lat, lng, name) {
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
              return function() {
                     $("#anything_station_selection")[0].value = name[i];
+                    
+                    $("#anything_lower_year")[0].value = $("#lower_year")[0].value;
+                    $("#anything_upper_year")[0].value = $("#upper_year")[0].value;
+
                     $("#data_form").submit();
              }
         })(marker, i));
@@ -89,7 +93,7 @@ function addMarker(lat, lng, val) {
         //          }
         //     })(marker, i));
         
-            permit_locations.push({location: new google.maps.LatLng(lat[i], lng[i]), weight: Math.log(val[i])/topEnd})
+            permit_locations.push({location: new google.maps.LatLng(lat[i], lng[i]), weight: (5*val[i]/100000000)})
         }  
         // marker = new google.maps.Marker({
         //      position: new google.maps.LatLng(lat[i], lng[i]),
@@ -105,7 +109,7 @@ function addMarker(lat, lng, val) {
         
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: permit_locations,
-          radius: 25
+          radius: 50
         });
         heatmap.setMap(map);
     }

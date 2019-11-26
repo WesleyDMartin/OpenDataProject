@@ -9,11 +9,6 @@ end
 @permit_set = LocationSet.create(name: "Building_Permits")
 csv_text2 = File.read('public/FormattedLocations.csv')
 csv2 = CSV.parse(csv_text2, :headers => true)
-i = 0
 csv2.each do |row|
-  i += 1
-  if i > 3000
-    break
-  end
   @permit_set.locations.create(row.to_hash)
 end

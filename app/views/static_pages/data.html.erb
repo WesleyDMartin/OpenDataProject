@@ -31,9 +31,12 @@
         <h3>Most Expensive Permit</h3>
         <p>The most expensive permit was for <b><%=number_to_currency(@max.value)%> <%="dollar".pluralize(@max.value)%></b></p>
         
-        <h3>Breakdown of Types of Permits</h3>
-        <%= pie_chart @nearby_stations.group(:permit_type).count, donut: true, legend: "left", width: "600px", library: { pieSliceText: 'value' }%>
+        <h3>Number of Permits by Year</h3>
+        <%= line_chart @nearby_stations.group(:issue_year).count, donut: true, legend: false, width: "500px", height: "300px"%>
         
+        <h3>Breakdown of Types of Permits</h3>
+        <%= pie_chart @nearby_stations.group(:permit_type).count, donut: true, legend: "right", width: "500px", height: "500px", library: { pieSliceText: 'value' }%>
+
     </div>
 </div>
 

@@ -30,17 +30,23 @@ class StaticPagesController < ApplicationController
   def data
     if params[:anything]
         @selection = params[:anything][:station_selection] || "Willis Way"
+        @start_year = params[:anything][:lower_year] || 2010
+        @end_year = params[:anything][:upper_year] || 2019
     else
         @selection = params[:station_selection] || "Willis Way"
-    end
-    @start_year = params[:lower_year] || 2010
-    @end_year = params[:upper_year] || 2019
+        @start_year = params[:lower_year] || 2010
+        @end_year = params[:upper_year] || 2019
+    end 
+    puts @start_year
+    puts @end_year
+    puts @selection
     @distance = params[:distance] || 1
     @stop_names = LocationSet.where("name = ?", "ION_Stops").first.locations.map{|l| l.name}
     @station = LocationSet.where("name = ?", "ION_Stops").first.locations.where("name = ?", @selection).first
     @nearby_stations = Location.within(@distance, :origin => @station).all.where(
         "issue_year >= ? and issue_year <= ?", @start_year, @end_year)
-    @count = @nearby_stations.count
+        
+    @count = @nearby_stations.count(:all)
     @sum = 0
     @max = @nearby_stations.order("value DESC").first
     puts @max.value
