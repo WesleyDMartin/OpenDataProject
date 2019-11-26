@@ -10,25 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191030032051) do
+ActiveRecord::Schema.define(version: 20191125200707) do
 
   create_table "location_sets", force: :cascade do |t|
-    t.string   "name"
-    t.string   "file"
+    t.string "name"
+    t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer  "location_set_id"
-    t.decimal  "lat"
-    t.decimal  "long"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "value"
-    t.integer  "issue_year"
-    t.string   "permit_type"
+    t.integer "location_set_id"
+    t.decimal "lat"
+    t.decimal "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "value"
+    t.integer "issue_year"
+    t.string "permit_type"
+    t.string "name"
     t.index ["location_set_id"], name: "index_locations_on_location_set_id"
+  end
+
+  create_table "stops", force: :cascade do |t|
+    t.string "stop_location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

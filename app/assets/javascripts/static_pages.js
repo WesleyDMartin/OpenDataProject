@@ -6,7 +6,7 @@ var infowindow = new google.maps.InfoWindow();
 
 var permit_locations = [];
 var firstLoad = true;
-function initMap(lat, lng) {
+function initMap(lat, lng, name) {
     firstLoad = false;
     var myCoords = new google.maps.LatLng(lat[10], lng[10]);
     var mapOptions = {
@@ -25,20 +25,20 @@ function initMap(lat, lng) {
     
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
              return function() {
-                 window.location.href = "data";
+                    $("#anything_station_selection")[0].value = name[i];
+                    $("#data_form").submit();
              }
         })(marker, i));
     
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
              return function() {
-                 infowindow.setContent("Willis Way");
+                 infowindow.setContent(name[i]);
                  infowindow.open(map, marker);
              }
         })(marker, i));
     
         google.maps.event.addListener(marker, 'mouseexit', (function(marker, i) {
              return function() {
-                 infowindow.setContent("Wilis Way");
                  infowindow.close()
              }
         })(marker, i));
@@ -65,6 +65,7 @@ function addMarker(lat, lng, val) {
     {
         var i;
         var image;
+        var topEnd = Math.log(150000000);
         for (i = 0; i < lat.length; i++) {  
         //   image = {
         //                 url: iconBase + 'parking_lot_maps.png',
@@ -88,7 +89,7 @@ function addMarker(lat, lng, val) {
         //          }
         //     })(marker, i));
         
-        permit_locations.push({location: new google.maps.LatLng(lat[i], lng[i]), weight: (5*val[i]/100000000)})
+            permit_locations.push({location: new google.maps.LatLng(lat[i], lng[i]), weight: Math.log(val[i])/topEnd})
         }  
         // marker = new google.maps.Marker({
         //      position: new google.maps.LatLng(lat[i], lng[i]),
@@ -104,7 +105,7 @@ function addMarker(lat, lng, val) {
         
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: permit_locations,
-          radius: 50
+          radius: 25
         });
         heatmap.setMap(map);
     }

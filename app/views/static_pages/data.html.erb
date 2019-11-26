@@ -3,49 +3,36 @@
     <div id="left">
         <%= form_for :anything, url: "data" do |f| %>
         <h3>Select Stop to Analyze</h3>
-        <select>
-            <option>Conestoga</option>
-            <option>Northfield</option>
-            <option>Research and Technology</option>
-            <option>University of Waterloo</option>
-            <option>Laurier - Waterloo Park</option>
-            <option>Waterloo Public Square</option>
-            <option selected="selected">Willis Way</option>
-            <option>Allen</option>
-            <option>Grand River Hospital</option>
-            <option>Central Station - Innovation District</option>
-            <option>Kitchener City Hall</option>
-            <option>Victoria Park</option>
-            <option>Frederick</option>
-            <option>Queen</option>
-            <option>Kitchener Market</option>
-            <option>Mill</option>
-            <option>Block Line</option>
-            <option>Fairway</option>
-        </select>
+        <%= select_tag "station_selection", options_for_select(@stop_names, selected: @selection) %>
           <h3>Year Granted</h3>
           <p>Between 2010 and 2019</p>
-          <span><input name="lower_value" type="text"
-              value="2010" id="value_range">-
-              <input name="upper_value" type="text"
-              value="2019" id="value_range"></span>
+          <span><input name="lower_year" type="text"
+              value=<%=@start_year%> id="value_range">-
+              <input name="upper_year" type="text"
+              value=<%=@end_year%> id="value_range"></span>
                   
-        <h3>Please enter distance from stop (in meters)</h3>
-          <p>Between 0 and 1000</p>
-              <span><input name="lower_value" type="text"
-                  value="Between 0 and 1000" id="value_range"><span>
+        <h3>Please enter distance from stop (in kilometers)</h3> 
+          <p>Between 1 and 5</p>
+              <span><input name="distance" type="text"
+                  value=<%=@distance%> id="value_range"><span>
+        <br />
+        <br />
+        <%= f.submit "Update Data", class: "btn btn-primary"%>
         <% end %>
         
     </div>
     <div id = "right" style ="margin-top: 0px">
-        <h1>Willis Way</h1>
+        <h1><%=@selection%></h1>
         <h3>Total Permit Count</h3>
-        <p>There have been 96 permits granted between 2010 and 2019 over 100 thousand dollars</p>
+        <p>There have been <b><%=@count%></b> permits granted between <b><%=@start_year%></b> and <b><%=@end_year%></b>
+         which cost over <b><%=number_to_currency(@sum)%> <%="dollar".pluralize(@sum)%></b></p>
+
+         <p>The average cost per permit was <b><%=number_to_currency(@average)%> <%="dollar".pluralize(@max.value)%></b></p>
         <h3>Most Expensive Permit</h3>
-        <p>The most expensive permit was a mixed use building for 200 million dollars</p>
+        <p>The most expensive permit was for <b><%=number_to_currency(@max.value)%> <%="dollar".pluralize(@max.value)%></b></p>
         
         <h3>Breakdown of Types of Permits</h3>
-        <%= image_tag('meta-chart.png', height: 300) %>
+        <%= pie_chart @nearby_stations.group(:permit_type).count, donut: true, legend: "left", width: "600px", library: { pieSliceText: 'value' }%>
         
     </div>
 </div>

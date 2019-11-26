@@ -6,7 +6,7 @@ var infowindow = new google.maps.InfoWindow();
 
 var permit_locations = [];
 var firstLoad = true;
-function initMap(lat, lng) {
+function initMap(lat, lng, name) {
     firstLoad = false;
     var myCoords = new google.maps.LatLng(lat[10], lng[10]);
     var mapOptions = {
