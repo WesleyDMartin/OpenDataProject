@@ -212,17 +212,20 @@ html, body {
 #wrapper {    
     height: 100%;
     margin-bottom: 0px;
+    justify-content: center;
   margin-top: 10px;
   display: flex;
 }
 
 #left {
   margin-left: 120px;
+  justify-content: center;
   flex: 0 0 40%;
 }
 
 #right {
   margin: 0px 10px 0px 10px;
+  justify-content: center;
   flex: 1;
 }
 

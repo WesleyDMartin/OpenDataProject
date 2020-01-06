@@ -1,6 +1,6 @@
 
 <%= form_for :anything, url: "data", :html => { :id => "submit_form" } do |f| %>
-<div style="display: flex">
+<div style="display: flex; justify-content: center">
     <div style="margin: 10px">
         <h3>Select Stop to Analyze</h3>
         <%= select_tag "station_selection", options_for_select(@stop_names, selected: @selection) %>

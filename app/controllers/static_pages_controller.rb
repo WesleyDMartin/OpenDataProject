@@ -70,7 +70,7 @@ class StaticPagesController < ApplicationController
         end
     rescue => exception
         puts exception
-        redirect_to 'data'
+        redirect_to '/data'
     end
   end
 
