@@ -8,3 +8,5 @@ This is a simple website I made, with the primary purpose of learning and practi
 * Clone the project and step into the folder
 * Run `rails install` and `rails update` if necessary
 * Start the server, `rails server`
+
+To see a working demo, feel free to visit http://wesleymart.in/
