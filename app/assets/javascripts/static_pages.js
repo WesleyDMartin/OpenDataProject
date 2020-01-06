@@ -6,6 +6,14 @@ var infowindow = new google.maps.InfoWindow();
 
 var permit_locations = [];
 var firstLoad = true;
+
+/*	Function	: initMap
+*	Descripton	: Loads the map for the first time, adding all of the LRT stop
+*				: locations and all the building permit locations
+*	Parameters	: Three arrays, each the same length, with the latitude, longitude, 
+*               : and name of each location
+*	Returns		: nil
+**/
 function initMap(lat, lng, name) {
     firstLoad = false;
     var myCoords = new google.maps.LatLng(lat[10], lng[10]);
@@ -23,6 +31,7 @@ function initMap(lat, lng, name) {
              map: map
         });
     
+        // Handle click (move to detailed location page)
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
              return function() {
                     $("#anything_station_selection")[0].value = name[i];
@@ -33,14 +42,16 @@ function initMap(lat, lng, name) {
                     $("#data_form").submit();
              }
         })(marker, i));
-    
+        
+        // Handle the mouse over (show the location name)
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
              return function() {
                  infowindow.setContent(name[i]);
                  infowindow.open(map, marker);
              }
         })(marker, i));
-    
+        
+        // Handle the mouse exit (hide the location name)
         google.maps.event.addListener(marker, 'mouseexit', (function(marker, i) {
              return function() {
                  infowindow.close()
@@ -49,10 +60,20 @@ function initMap(lat, lng, name) {
     }
 }
 
+/*	Property	: Indicates if this is the first time the map is loading */
 function firstLoad(){
     return firstLoad;
 }
 
+
+/*	Function	: addMarker
+*	Descripton	: Used to add either building permit location to the map
+*				: Note: will initialize map if map is null
+*	Parameters	: lat - latitude of position
+*               : lng - longitude of position
+*               : val - value of marker (in this case, permit value)
+*	Returns		: nil
+**/
 function clearOverlays() {
   for (var i = 0; i < permit_locations.length; i++ ) {
     permit_locations[i].setMap(null);
@@ -60,52 +81,26 @@ function clearOverlays() {
   permit_locations.length = 0;
 }
 
+
+/*	Function	: addMarker
+*	Descripton	: Used to add building permit locations to the map
+*				: Note: will initialize map if map is null
+*	Parameters	: lat - latitude of position
+*               : lng - longitude of position
+*               : val - value of marker (in this case, permit value)
+*	Returns		: nil
+**/
 function addMarker(lat, lng, val) {
-    if (map == null)
-    {
+    if (map == null) {
         initMap(lat, lng);
-    }
-    else
-    {
+    } else {
         var i;
-        var image;
-        var topEnd = Math.log(150000000);
-        for (i = 0; i < lat.length; i++) {  
-        //   image = {
-        //                 url: iconBase + 'parking_lot_maps.png',
-        //                 // This marker is 20 pixels wide by 32 pixels high.
-        //                 scaledSize: new google.maps.Size(15+(32*val[i]/100000000), 15+(32*val[i]/100000000)),
-        //                 // The origin for this image is (0, 0).
-        //                 origin: new google.maps.Point(0, 0),
-        //                 // The anchor for this image is the base of the flagpole at (0, 32).
-        //                 anchor: new google.maps.Point(0, 32)
-        //               };
-        //     marker = new google.maps.Marker({
-        //          position: new google.maps.LatLng(lat[i], lng[i]),
-        //          map: map,
-        //          icon: image
-        //     });
-        
-        //     google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        //          return function() {
-        //              infowindow.setContent(lat[i]);
-        //              infowindow.open(map, marker);
-        //          }
-        //     })(marker, i));
-        
+        for (i = 0; i < lat.length; i++) {
+            // The locations need to be weighted based off of value for the heat map
+            // This value: 5*val[i]/100000000, gave the best balance between showing
+            // most low end values while not overwhelming the map with the large values
             permit_locations.push({location: new google.maps.LatLng(lat[i], lng[i]), weight: (5*val[i]/100000000)})
-        }  
-        // marker = new google.maps.Marker({
-        //      position: new google.maps.LatLng(lat[i], lng[i]),
-        //      map: map
-        // });
-    
-        // google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        //      return function() {
-        //          infowindow.setContent(lat[i]);
-        //          infowindow.open(map, marker);
-        //      }
-        // })(marker, i));
+        }
         
         var heatmap = new google.maps.visualization.HeatmapLayer({
           data: permit_locations,
